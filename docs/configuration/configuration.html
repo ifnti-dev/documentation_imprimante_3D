@@ -653,14 +653,12 @@ En l'occurence, nous avons inversé Xmin, Ymin et Zmin (les Xmax, Ymax et Zmax n
 <span class="c1">//#define UNKNOWN_Z_NO_RAISE		// Don't raise Z (lower the bed) if Z is "unknown."</span>
 									<span class="c1">//For beds that fall when Z is powered off.</span>
 <span class="c1">//#define Z_HOMING_HEIGHT 4</span>
+<div class="personalisation_ifnti">Notre imprimante est cartésienne. <a href="https://www.3dsourced.com/3d-printers/types-of-fdm-3d-printer-cartesian-delta/">Ce site</a> explique les différences entre les types d'imprimantes. </div>
+</code></pre></div></div> <p>This value raises Z to the specified height above the bed before homing X or Y. This is useful to prevent the head crashing into bed mountings such as screws, bulldog clips, etc. This also works with auto bed leveling enabled and will be triggered only when the Z axis height is less than the defined value, otherwise the Z axis will not move. <code class="language-plaintext highlighter-rouge">NO_MOTION_BEFORE_HOMING</code> and <code class="language-plaintext highlighter-rouge">UNKNOWN_Z_NO_RAISE</code></p>
+<div class="personalisation_ifnti"> Nous avons activé l'otpion NO_MOTION_BEFORE_HOMING pour empecher tout mouvement tant que un home n'a pas été fait. Pour faire un home, il faut envoyer la commande <a href="../gcode/G028.html"> G28 </a>G28 inséré le code G28 X  </div>
 
-</code></pre></div></div> <p>This value raises Z to the specified height above the bed before homing X or Y. This is useful to prevent the head crashing into bed mountings such as screws, bulldog clips, etc. This also works with auto bed leveling enabled and will be triggered only when the Z axis height is less than the defined value, otherwise the Z axis will not move. <code class="language-plaintext highlighter-rouge">NO_MOTION_BEFORE_HOMING</code> and <code class="language-plaintext highlighter-rouge">UNKNOWN_Z_NO_RAISE</code></p> 
-
- Pour faire un home, il faut utiliser le commande <a href="../gcode/G028.html"> G28 </a>, ce qui permettra 
-
-<br>
-
-<h3 id="homing-direction">Homing Direction</h3> <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define X_HOME_DIR -1
+<h3 id="homing-direction">Homing Direction</h3>
+  <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
 </span></code></pre></div></div> <p>Homing direction for each axis: -1 = min, 1 = max. Most Cartesian and core machines have three min endstops. Deltas have three max endstops. For other configurations set these values appropriately.</p> <h3 id="movement-bounds">Movement Bounds</h3> <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define X_BED_SIZE 200
